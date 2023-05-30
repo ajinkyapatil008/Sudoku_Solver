@@ -4,13 +4,13 @@ var EASY_PUZZLE = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---
 var MEDIUM_PUZZLE = "-3-5--8-45-42---1---8--9---79-8-61-3-----54---5------78-----7-2---7-46--61-3--5--";
 var HARD_PUZZLE = "8----------36------7--9-2---5---7-------457-----1---3---1----68--85---1--9----4--";
 
-// Set this variable to true to publicly expose otherwise private functions inside of SudokuSolver
+
 var TESTABLE = true;
 
 var SudokuSolver = function (testable) {
   var solver;
 
-  // PUBLIC FUNCTIONS
+  
   function solve(boardString) {
     var boardArray = boardString.split("");
     if (boardIsInvalid(boardArray)) {
@@ -25,7 +25,6 @@ var SudokuSolver = function (testable) {
     return solvedBoard;
   }
 
-  // PRIVATE FUNCTIONS
   function recursiveSolve(boardString) {
     var boardArray = boardString.split("");
     if (boardIsSolved(boardArray)) {
@@ -143,7 +142,6 @@ var SudokuSolver = function (testable) {
   }
 
   if (testable) {
-    // These methods will be exposed publicly when testing is on.
     solver = { 
       solve: solve,
       solveAndPrint: solveAndPrint,
@@ -162,7 +160,7 @@ var SudokuSolver = function (testable) {
       collectionIsValid: collectionIsValid,
       toString: toString };
   } else {
-    // These will be the only public methods when testing is off.
+   
     solver = { solve: solve,
       solveAndPrint: solveAndPrint };
   }
